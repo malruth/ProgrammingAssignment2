@@ -50,8 +50,9 @@ cacheSolve <- function(baseMatrix, ...) {
 	inverse <- baseMatrix$getInverse()
 	
 	if(is.null(inverse)) {				## if that cached copy is unset
+		message("DEBUG Message: Calculating Inverse!")
 		data <- baseMatrix$get()		## extract the base matrix from the interface
-		inverse <- solve(data, ...)		## calculate the inverse of the base matrix
+		inverse <- solve(data)			## calculate the inverse of the base matrix
 		baseMatrix$setInverse(inverse)	## and store it into the matrix interface
 	}
 	
